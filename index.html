@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hussain Ali Shaik | Java Full Stack Developer</title>
+
+    <meta name="description"
+          content="Hussain Ali Shaik - MCA Graduate and Java Full Stack Developer. Explore skills, projects, experience and professional journey.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #08090d;
+            color: #f5f7fa;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Background */
+
+        .background {
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(0, 180, 255, 0.12), transparent 25%),
+                radial-gradient(circle at 80% 70%, rgba(100, 80, 255, 0.10), transparent 25%),
+                #08090d;
+        }
+
+        .grid {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            opacity: 0.08;
+            background-image:
+                linear-gradient(rgba(255,255,255,.2) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,.2) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        /* Navigation */
+
+        nav {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: min(1100px, 92%);
+            padding: 14px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(12, 14, 20, 0.78);
+            border: 1px solid rgba(255,255,255,.1);
+            border-radius: 18px;
+            backdrop-filter: blur(18px);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #45caff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 22px;
+            list-style: none;
+            font-size: 14px;
+        }
+
+        .nav-links a {
+            color: #aeb6c5;
+            transition: .3s;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        /* Hero */
+
+        .hero {
+            min-height: 100vh;
+            max-width: 1100px;
+            margin: auto;
+            padding: 180px 30px 100px;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 8px 13px;
+            border: 1px solid rgba(255,255,255,.12);
+            background: rgba(255,255,255,.04);
+            border-radius: 30px;
+            color: #b9c3d3;
+            font-size: 13px;
+            margin-bottom: 25px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #48e58a;
+            border-radius: 50%;
+            box-shadow: 0 0 15px #48e58a;
+        }
+
+        .hero h1 {
+            font-size: clamp(52px, 9vw, 105px);
+            line-height: .92;
+            letter-spacing: -5px;
+            margin-bottom: 28px;
+        }
+
+        .hero h1 span {
+            display: block;
+            color: transparent;
+            -webkit-text-stroke: 1px #697385;
+        }
+
+        .hero-description {
+            max-width: 650px;
+            color: #9da7b8;
+            font-size: 18px;
+            margin-bottom: 35px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 13px 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,.13);
+            background: rgba(255,255,255,.05);
+            transition: .3s;
+        }
+
+        .btn.primary {
+            background: white;
+            color: #08090d;
+            font-weight: 700;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Sections */
+
+        section {
+            max-width: 1100px;
+            margin: auto;
+            padding: 110px 30px;
+        }
+
+        .section-number {
+            color: #45caff;
+            font-family: monospace;
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: clamp(35px, 6vw, 65px);
+            letter-spacing: -2px;
+            margin-bottom: 45px;
+        }
+
+        /* About */
+
+        .about-box {
+            border: 1px solid rgba(255,255,255,.1);
+            background: rgba(255,255,255,.035);
+            border-radius: 25px;
+            padding: 35px;
+        }
+
+        .about-box p {
+            color: #aab3c2;
+            font-size: 18px;
+            max-width: 850px;
+        }
+
+        /* Skills */
+
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 12px;
+        }
+
+        .skill {
+            padding: 20px;
+            border: 1px solid rgba(255,255,255,.09);
+            border-radius: 15px;
+            background: rgba(255,255,255,.035);
+            transition: .3s;
+        }
+
+        .skill:hover {
+            transform: translateY(-5px);
+            border-color: rgba(69,202,255,.5);
+        }
+
+        .skill small {
+            color: #697385;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .skill strong {
+            font-size: 17px;
+        }
+
+        /* Experience */
+
+        .timeline {
+            border-left: 1px solid #303746;
+            padding-left: 30px;
+        }
+
+        .timeline-item {
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #45caff;
+            border-radius: 50%;
+            left: -36px;
+            top: 8px;
+            box-shadow: 0 0 15px #45caff;
+        }
+
+        .timeline-date {
+            color: #45caff;
+            font-family: monospace;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        .timeline-item h3 {
+            font-size: 25px;
+            margin-bottom: 8px;
+        }
+
+        .timeline-item p {
+            color: #9da7b8;
+        }
+
+        /* Projects */
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 18px;
+        }
+
+        .project {
+            min-height: 280px;
+            padding: 28px;
+            border: 1px solid rgba(255,255,255,.1);
+            border-radius: 22px;
+            background: linear-gradient(
+                145deg,
+                rgba(255,255,255,.06),
+                rgba(255,255,255,.015)
+            );
+            transition: .4s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project:hover {
+            transform: translateY(-8px);
+            border-color: rgba(69,202,255,.4);
+        }
+
+        .project-number {
+            font-family: monospace;
+            color: #697385;
+        }
+
+        .project h3 {
+            font-size: 24px;
+            margin: 25px 0 10px;
+        }
+
+        .project p {
+            color: #929cac;
+        }
+
+        .tech {
+            margin-top: 20px;
+            color: #45caff;
+            font-size: 13px;
+        }
+
+        /* Learning */
+
+        .learning {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .learning span {
+            padding: 12px 16px;
+            border: 1px solid rgba(255,255,255,.1);
+            border-radius: 30px;
+            color: #b5becd;
+            background: rgba(255,255,255,.03);
+        }
+
+        /* Contact */
+
+        .contact {
+            text-align: center;
+            padding-bottom: 80px;
+        }
+
+        .contact p {
+            color: #929cac;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            padding: 12px 18px;
+            border: 1px solid rgba(255,255,255,.1);
+            border-radius: 12px;
+            background: rgba(255,255,255,.04);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid rgba(255,255,255,.08);
+            color: #687181;
+            font-size: 13px;
+        }
+
+        /* Mobile */
+
+        @media (max-width: 700px) {
+
+            nav {
+                top: 10px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 150px;
+            }
+
+            .hero h1 {
+                letter-spacing: -3px;
+            }
+
+            section {
+                padding: 80px 20px;
+            }
+
+            .about-box {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="background"></div>
+<div class="grid"></div>
+
+<!-- Navigation -->
+
+<nav>
+
+    <a href="#home" class="logo">
+        HAS<span>.</span>
+    </a>
+
+    <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+</nav>
+
+
+<!-- Hero -->
+
+<header class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="status">
+            <span class="status-dot"></span>
+            Open to opportunities
+        </div>
+
+        <h1>
+            HUSSAIN
+            <span>ALI SHAIK</span>
+        </h1>
+
+        <p class="hero-description">
+            MCA Graduate & Java Full Stack Developer focused on building
+            practical software, solving problems and continuously learning
+            modern technologies.
+        </p>
+
+        <div class="buttons">
+
+            <a href="#projects" class="btn primary">
+                Explore My Work →
+            </a>
+
+            <a href="#contact" class="btn">
+                Contact Me
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- About -->
+
+<section id="about">
+
+    <div class="section-number">01 / ABOUT</div>
+
+    <h2 class="section-title">
+        More than a resume.
+    </h2>
+
+    <div class="about-box">
+
+        <p>
+            I am an MCA graduate with a strong foundation in Java,
+            Python, SQL and software development. I enjoy understanding
+            how applications work, solving programming problems and
+            turning ideas into useful software.
+        </p>
+
+        <br>
+
+        <p>
+            My current focus is Java Full Stack development, including
+            Spring Boot, REST APIs, databases and modern web technologies.
+            I believe consistent learning and practical projects are the
+            best way to grow as a developer.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- Skills -->
+
+<section id="skills">
+
+    <div class="section-number">02 / TOOLBOX</div>
+
+    <h2 class="section-title">
+        Technologies I work with.
+    </h2>
+
+    <div class="skills">
+
+        <div class="skill">
+            <small>LANGUAGE</small>
+            <strong>Java</strong>
+        </div>
+
+        <div class="skill">
+            <small>LANGUAGE</small>
+            <strong>Python</strong>
+        </div>
+
+        <div class="skill">
+            <small>LANGUAGE</small>
+            <strong>C</strong>
+        </div>
+
+        <div class="skill">
+            <small>DATABASE</small>
+            <strong>SQL</strong>
+        </div>
+
+        <div class="skill">
+            <small>DATABASE</small>
+            <strong>MySQL</strong>
+        </div>
+
+        <div class="skill">
+            <small>JAVA</small>
+            <strong>JDBC</strong>
+        </div>
+
+        <div class="skill">
+            <small>BACKEND</small>
+            <strong>Spring Boot</strong>
+        </div>
+
+        <div class="skill">
+            <small>API</small>
+            <strong>REST APIs</strong>
+        </div>
+
+        <div class="skill">
+            <small>FRONTEND</small>
+            <strong>HTML</strong>
+        </div>
+
+        <div class="skill">
+            <small>FRONTEND</small>
+            <strong>CSS</strong>
+        </div>
+
+        <div class="skill">
+            <small>FRONTEND</small>
+            <strong>JavaScript</strong>
+        </div>
+
+        <div class="skill">
+            <small>VERSION CONTROL</small>
+            <strong>Git / GitHub</strong>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Experience -->
+
+<section id="experience">
+
+    <div class="section-number">03 / JOURNEY</div>
+
+    <h2 class="section-title">
+        My journey.
+    </h2>
+
+    <div class="timeline">
+
+        <div class="timeline-item">
+
+            <div class="timeline-date">2025 — 2026</div>
+
+            <h3>Subject Matter Expert</h3>
+
+            <p>
+                Chegg — Worked on computer science and programming
+                related problem solving and technical explanations.
+            </p>
+
+        </div>
+
+        <div class="timeline-item">
+
+            <div class="timeline-date">2025</div>
+
+            <h3>Master of Computer Applications</h3>
+
+            <p>
+                Narasaraopet Engineering College · JNTUK
+            </p>
+
+        </div>
+
+        <div class="timeline-item">
+
+            <div class="timeline-date">2023</div>
+
+            <h3>B.Sc. Computer Science</h3>
+
+            <p>
+                Sri Rohini Degree College · Acharya Nagarjuna University
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Projects -->
+
+<section id="projects">
+
+    <div class="section-number">04 / SELECTED WORK</div>
+
+    <h2 class="section-title">
+        Things I have built.
+    </h2>
+
+    <div class="projects">
+
+        <article class="project">
+
+            <div>
+
+                <div class="project-number">PROJECT 01</div>
+
+                <h3>Java Full Stack Application</h3>
+
+                <p>
+                    A full stack application developed using Java,
+                    Spring Boot, REST APIs and MySQL.
+                </p>
+
+            </div>
+
+            <div class="tech">
+                Java · Spring Boot · REST · MySQL
+            </div>
+
+        </article>
+
+
+        <article class="project">
+
+            <div>
+
+                <div class="project-number">PROJECT 02</div>
+
+                <h3>Python Project</h3>
+
+                <p>
+                    A practical Python project focused on programming
+                    logic, data handling and application development.
+                </p>
+
+            </div>
+
+            <div class="tech">
+                Python · Programming · Data Handling
+            </div>
+
+        </article>
+
+
+        <article class="project">
+
+            <div>
+
+                <div class="project-number">PROJECT 03</div>
+
+                <h3>Learning Lab</h3>
+
+                <p>
+                    A collection of programming practice and problem
+                    solving work covering Java, Python, SQL and DSA.
+                </p>
+
+            </div>
+
+            <div class="tech">
+                Java · Python · DSA · SQL
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- Currently Learning -->
+
+<section>
+
+    <div class="section-number">05 / NOW</div>
+
+    <h2 class="section-title">
+        Currently learning.
+    </h2>
+
+    <div class="learning">
+
+        <span>Spring Boot</span>
+        <span>REST APIs</span>
+        <span>DSA</span>
+        <span>Git & GitHub</span>
+        <span>Java Full Stack</span>
+        <span>Software Development</span>
+
+    </div>
+
+</section>
+
+
+<!-- Contact -->
+
+<section id="contact" class="contact">
+
+    <div class="section-number">06 / CONTACT</div>
+
+    <h2 class="section-title">
+        Let's connect.
+    </h2>
+
+    <p>
+        Interested in my work or want to discuss an opportunity?
+        Feel free to connect with me.
+    </p>
+
+    <div class="contact-links">
+
+        <a href="https://github.com/hussainalishaik"
+           target="_blank">
+            GitHub
+        </a>
+
+        <a href="https://www.linkedin.com/"
+           target="_blank">
+            LinkedIn
+        </a>
+
+        <a href="mailto:hussainalishaik255@gmail.com">
+            Email
+        </a>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    © 2026 Hussain Ali Shaik · Built with HTML, CSS & JavaScript
+
+</footer>
+
+</body>
+</html>
